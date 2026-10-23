@@ -1,0 +1,533 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Examen Marketing Digital</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: une colonne de lecture de 720px, barre de progression collée en haut pendant l'examen.
+     Palette Mistick EDUCATION : violet profond et jaune soleil, neutres teintés de violet. */
+  :root {
+    --bg: #FBF9FF;
+    --surface: #FFFFFF;
+    --fg: #21163A;
+    --muted: #625780;
+    --line: #E2DAF3;
+    --violet: #4E2A94;
+    --violet-soft: #EFE9FB;
+    --yellow: #F7C325;
+    --on-yellow: #2A1E00;
+    --badge-bg: #4E2A94;
+    --btn-bg: #4E2A94;
+    --btn-fg: #FFFFFF;
+    --warn-bg: #FFF2C2;
+    --warn-fg: #4A3700;
+    --f-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --f-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #150F26; --surface: #1F1736; --fg: #F1ECFB; --muted: #B3A8CE; --line: #392D5C;
+      --violet: #C2A9F5; --violet-soft: #2B2149; --btn-bg: #C2A9F5; --btn-fg: #1A1030;
+      --warn-bg: #3B3010; --warn-fg: #FBE9A8; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #150F26; --surface: #1F1736; --fg: #F1ECFB; --muted: #B3A8CE; --line: #392D5C;
+    --violet: #C2A9F5; --violet-soft: #2B2149; --btn-bg: #C2A9F5; --btn-fg: #1A1030;
+    --warn-bg: #3B3010; --warn-fg: #FBE9A8; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: var(--f-body); font-size: 16px; line-height: 1.55;
+    padding-block: 20px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+    z-index: 10; background: var(--bg);
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1, h2 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+  h1 { font-weight: 800; font-size: clamp(1.9rem, 6.5vw, 2.7rem); line-height: 1.04; letter-spacing: -0.015em; }
+  h2 { font-weight: 700; font-size: 1.1rem; line-height: 1.25; }
+  p { margin: 0; }
+  .eyebrow { font-size: .76rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--violet); }
+  .lead { font-size: 1.1rem; color: var(--fg); max-width: 56ch; }
+  .small { font-size: .9rem; color: var(--muted); }
+
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .badge {
+    width: 44px; height: 44px; border-radius: 10px; background: var(--badge-bg); color: var(--yellow);
+    display: grid; place-items: center; font: 800 1.2rem var(--f-display); letter-spacing: -0.02em;
+  }
+  .brand b { display: block; font-family: var(--f-display); font-size: 1.05rem; line-height: 1.1; }
+  .brand span { font-size: .85rem; color: var(--muted); }
+
+  .stack { display: flex; flex-direction: column; gap: 16px; }
+  .facts { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .facts li { position: relative; padding-left: 28px; }
+  .facts li::before {
+    content: ""; position: absolute; left: 4px; top: .5em; width: 12px; height: 12px; border-radius: 3px;
+    background: var(--yellow); transform: rotate(45deg);
+  }
+
+  form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+  label.f { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: .95rem; }
+  input[type="text"], textarea {
+    font: inherit; color: var(--fg); background: var(--surface); border: 1.5px solid var(--line);
+    border-radius: 10px; padding: 12px 14px; width: 100%; min-height: 46px;
+  }
+  textarea { font-family: var(--f-mono); font-size: .8rem; line-height: 1.5; resize: vertical; }
+  input[type="text"]:focus-visible, textarea:focus-visible { outline: 2px solid var(--violet); outline-offset: 1px; }
+  .err { color: #B3261E; font-size: .9rem; font-weight: 600; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .err { color: #FFB4AB; } }
+  :root[data-theme="dark"] .err { color: #FFB4AB; }
+
+  .btn {
+    font: 600 1rem var(--f-body); display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 46px; padding: 11px 20px; border-radius: 10px; border: 1.5px solid transparent;
+    cursor: pointer; text-decoration: none; text-align: center;
+  }
+  .btn.primary { background: var(--btn-bg); color: var(--btn-fg); }
+  .btn.ghost { background: transparent; border-color: var(--line); color: var(--fg); }
+  .btn:disabled { opacity: .45; cursor: default; }
+  .btn:focus-visible, .pill:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+
+  /* Examen */
+  .top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+    padding-block: 12px 12px; border-bottom: 1px solid var(--line); margin-bottom: 18px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .toprow { display: flex; justify-content: space-between; align-items: end; gap: 12px; }
+  .count { font: 600 .85rem var(--f-mono); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .bar { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--yellow); border-radius: 99px; transition: width .25s ease; }
+  .pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pill {
+    min-width: 38px; height: 34px; padding: 0 10px; border-radius: 8px; border: 1.5px solid var(--line);
+    background: var(--surface); color: var(--fg); font: 600 .85rem var(--f-body); cursor: pointer;
+  }
+  .pill[aria-current="true"] { border-color: var(--violet); box-shadow: 0 0 0 2px var(--violet); }
+  .pill.complete { background: var(--yellow); border-color: var(--yellow); color: var(--on-yellow); }
+
+  .qs { display: flex; flex-direction: column; gap: 16px; }
+  .q { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .qn { font: 600 .76rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--violet); }
+  .qt { font-weight: 600; font-size: 1.04rem; line-height: 1.45; }
+  .opts { display: flex; flex-direction: column; gap: 8px; }
+  .opt {
+    display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border: 1.5px solid var(--line);
+    border-radius: 10px; cursor: pointer; background: var(--surface); min-width: 0;
+  }
+  .opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .key {
+    flex: none; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--muted);
+    display: grid; place-items: center; font: 600 .78rem var(--f-body); color: var(--muted); margin-top: 1px;
+  }
+  .txt { min-width: 0; overflow-wrap: anywhere; }
+  .opt.sel { border-color: var(--violet); background: var(--violet-soft); }
+  .opt.sel .key { background: var(--yellow); border-color: var(--yellow); color: var(--on-yellow); }
+  .opt:focus-within { outline: 2px solid var(--violet); outline-offset: 2px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+  .warn { background: var(--warn-bg); color: var(--warn-fg); border-radius: 12px; padding: 14px 16px; margin-top: 18px; display: flex; flex-direction: column; gap: 12px; }
+  .warn .row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* Fin */
+  .steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 22px; }
+  .steps > li { counter-increment: s; position: relative; padding-left: 44px; display: flex; flex-direction: column; gap: 10px; }
+  .steps > li::before {
+    content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--yellow); color: var(--on-yellow); display: grid; place-items: center; font: 700 .9rem var(--f-display);
+  }
+  code.addr { font: 600 .95rem var(--f-mono); background: var(--violet-soft); padding: 3px 8px; border-radius: 6px; overflow-wrap: anywhere; user-select: all; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* Espace formatrice */
+  .tbl { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+  .tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; }
+  .tr .track { grid-column: 1 / -1; height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; }
+  .tr .track i { display: block; height: 100%; background: var(--yellow); border-radius: 99px; }
+  .tr b { font-variant-numeric: tabular-nums; }
+  .res { display: flex; flex-direction: column; gap: 22px; margin-top: 22px; }
+  .score { font: 800 2.6rem/1 var(--f-display); font-variant-numeric: tabular-nums; }
+  .miss { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; font-size: .95rem; }
+  .miss .bad { color: #B3261E; }
+  .miss .good { color: #1B6B3A; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .miss .bad { color: #FFB4AB; } :root:not([data-theme="light"]) .miss .good { color: #8FDDA8; } }
+  :root[data-theme="dark"] .miss .bad { color: #FFB4AB; }
+  :root[data-theme="dark"] .miss .good { color: #8FDDA8; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="brand">
+    <div class="badge" aria-hidden="true">ME</div>
+    <div><b>Mistick EDUCATION</b><span>Évaluation des acquis</span></div>
+  </header>
+
+  <main>
+    <section id="intro" class="stack">
+      <p class="eyebrow">Marketing digital</p>
+      <h1>Montrez ce que vous avez compris</h1>
+      <p class="lead">98 questions réparties en 7 parties. Une seule bonne réponse par question. Prévoyez environ une heure.</p>
+      <ul class="facts">
+        <li>Votre score ne s'affiche pas à l'écran. À la fin, vous envoyez vos réponses à votre formatrice par e-mail.</li>
+        <li>Répondez seul(e), sans moteur de recherche. Une question sautée compte comme fausse.</li>
+        <li>Votre progression est mémorisée sur cet appareil si votre navigateur l'autorise. Vous pouvez fermer la page et reprendre.</li>
+      </ul>
+      <form id="startForm" novalidate>
+        <label class="f" for="nameIn">Prénom et nom
+          <input type="text" id="nameIn" autocomplete="name" maxlength="80">
+        </label>
+        <label class="f" for="groupIn">Groupe ou classe (facultatif)
+          <input type="text" id="groupIn" maxlength="60">
+        </label>
+        <div class="err" id="nameErr" hidden>Indiquez votre prénom et votre nom pour commencer.</div>
+        <div><button class="btn primary" type="submit">Commencer l'examen</button></div>
+      </form>
+    </section>
+
+    <section id="exam" hidden>
+      <div class="top">
+        <div class="toprow">
+          <div><div class="eyebrow" id="secNum"></div><h2 id="secTitle"></h2></div>
+          <div class="count" id="count"></div>
+        </div>
+        <div class="bar" role="progressbar" aria-label="Progression de l'examen" aria-valuemin="0" aria-valuemax="98" id="barBox"><i id="barFill"></i></div>
+        <div class="pills" id="pills" aria-label="Parties de l'examen"></div>
+      </div>
+      <div class="qs" id="qs"></div>
+      <div class="warn" id="warn" hidden>
+        <p id="warnTxt"></p>
+        <div class="row">
+          <button class="btn primary" type="button" id="warnGo">Aller à la première question sans réponse</button>
+          <button class="btn ghost" type="button" id="warnForce">Terminer quand même</button>
+        </div>
+      </div>
+      <div class="nav">
+        <button class="btn ghost" type="button" id="prev">Partie précédente</button>
+        <span class="small" id="secCount"></span>
+        <button class="btn primary" type="button" id="next">Partie suivante</button>
+      </div>
+    </section>
+
+    <section id="done" class="stack" hidden>
+      <p class="eyebrow">Examen terminé</p>
+      <h1 id="thanks"></h1>
+      <p class="lead">Vos réponses sont prêtes. Le score n'est pas affiché ici : il est lu par votre formatrice.</p>
+      <ol class="steps">
+        <li>
+          <strong>Envoyez vos réponses par e-mail</strong>
+          <div><a class="btn primary" id="mailBtn" href="#">Envoyer mes résultats</a></div>
+          <p class="small">Votre application e-mail s'ouvre avec le message déjà rempli. Il faut ensuite appuyer sur Envoyer dans cette application : rien ne part tant que vous ne l'avez pas fait.</p>
+        </li>
+        <li>
+          <strong>Si rien ne s'ouvre</strong>
+          <p class="small">Copiez le message ci-dessous et envoyez-le depuis votre messagerie à cette adresse :</p>
+          <div><code class="addr" id="addr"></code></div>
+          <div class="row">
+            <button class="btn ghost" type="button" id="copyMsg">Copier le message</button>
+            <button class="btn ghost" type="button" id="copyAddr">Copier l'adresse</button>
+            <button class="btn ghost" type="button" id="dlBtn" hidden>Enregistrer en fichier</button>
+          </div>
+          <label class="f" for="msgBox"><span class="sr">Message à envoyer</span>
+            <textarea id="msgBox" rows="9" readonly></textarea>
+          </label>
+        </li>
+      </ol>
+    </section>
+
+    <section id="teacher" hidden>
+      <p class="eyebrow">Espace formatrice</p>
+      <h1>Lire un résultat</h1>
+      <div class="stack" style="margin-top:16px">
+        <p class="lead">Collez le message reçu par e-mail, ou seulement le code entre doubles crochets.</p>
+        <label class="f" for="tIn"><span class="sr">Message reçu</span><textarea id="tIn" rows="7"></textarea></label>
+        <div class="row"><button class="btn primary" type="button" id="tBtn">Décoder</button></div>
+        <div class="err" id="tErr" hidden></div>
+        <div id="tOut" class="res" hidden></div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="sr" id="live" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+  const SECTIONS = [{"t":"Fondamentaux du marketing digital","s":"Fondamentaux","q":[["Un restaurant reçoit beaucoup de visites sur son site mais très peu de réservations. Que révèle surtout ce constat ?","Un problème de conversion : les visiteurs ne passent pas à l'action","Un problème de notoriété : personne ne connaît le restaurant","Un problème de référencement : le site n'apparaît pas sur Google","Un problème de fréquence : il faut publier plus souvent"],["Que signifie SMART dans l'expression « objectif SMART » ?","Spécifique, Mesurable, Atteignable, Réaliste, Temporel","Simple, Marketing, Analysé, Rentable, Testé","Social, Mobile, Audience, Revenu, Trafic","Stratégique, Moderne, Adaptable, Rapide, Technique"],["Dans un tunnel de conversion, à quelle étape un prospect compare-t-il plusieurs solutions avant de choisir ?","La considération","La notoriété","La fidélisation","La recommandation"],["À quoi sert principalement un persona ?","À représenter un client type pour orienter les décisions marketing","À remplacer entièrement les études de marché auprès des clients","À créer un faux profil pour gagner des abonnés plus vite","À choisir le logo et les couleurs de la marque à la place du designer"],["Un journaliste publie spontanément un article élogieux sur votre marque, sans que vous le payiez. De quel type de média s'agit-il ?","Un média gagné (earned media)","Un média détenu (owned media)","Un média payant (paid media)","Un média interne"],["Quelle phrase décrit le mieux un KPI ?","Un indicateur chiffré directement relié à un objectif précis","Toute donnée disponible dans un tableau de bord, quelle qu'elle soit","Un outil qui permet de programmer les publications à l'avance","Un format d'annonce publicitaire utilisé sur les réseaux sociaux"],["Une boutique dépense 500 000 Ar en publicité et obtient 25 nouveaux clients. Quel est son coût d'acquisition client (CAC) ?","20 000 Ar","12 500 000 Ar","125 000 Ar","25 000 Ar"],["Un site a reçu 2 000 visiteurs et enregistré 50 achats. Quel est son taux de conversion ?","2,5 %","25 %","4 %","0,25 %"],["Que signifie un ROI positif ?","Le gain obtenu dépasse le coût investi","Le budget dépensé est inférieur à 1 000 000 Ar","Le nombre d'abonnés a augmenté","Le site est visité plus souvent qu'avant"],["Que doit expliquer clairement une proposition de valeur ?","Le problème résolu, pour qui, et pourquoi vous plutôt qu'un concurrent","La liste complète de tous vos produits avec leurs prix détaillés","L'histoire de l'entreprise depuis sa création jusqu'à aujourd'hui","Les réseaux sociaux sur lesquels l'entreprise est présente au quotidien"],["Quelle approche consiste à attirer les clients avec des contenus utiles plutôt qu'en les interrompant ?","Le marketing entrant (inbound marketing)","Le démarchage téléphonique à froid","L'affichage publicitaire de masse","Le marketing sortant (outbound marketing)"],["Pour qu'un test A/B soit exploitable, que faut-il faire ?","Ne modifier qu'un seul élément à la fois et laisser tourner le test assez longtemps","Changer le titre, l'image et le prix en même temps pour gagner du temps","Arrêter le test dès que l'une des versions semble meilleure le premier jour","Montrer la version A le matin et la version B le soir à tout le monde"],["Pourquoi segmenter son audience ?","Pour adapter le message et l'offre aux besoins de chaque groupe","Pour envoyer exactement le même message à tout le monde","Pour réduire le nombre de clients potentiels","Pour éviter d'avoir à mesurer les résultats"],["Pourquoi la fidélisation est-elle souvent plus rentable que la conquête de nouveaux clients ?","Garder un client coûte généralement moins cher que d'en acquérir un nouveau","Un client fidèle n'achète plus jamais chez les concurrents de la marque","Il n'y a plus besoin de communiquer avec lui une fois qu'il a acheté","La fidélisation ne demande aucun suivi ni aucune analyse des données"]]},{"t":"Référencement naturel (SEO)","s":"SEO","q":[["Que signifie SEO ?","Search Engine Optimization : améliorer sa visibilité dans les résultats naturels","Social Engagement Operation : augmenter les interactions sur les réseaux sociaux","Sales Email Outreach : prospecter des clients par e-mail de façon automatisée","Site Efficiency Overview : mesurer la vitesse de chargement d'un site web"],["Quelle est la différence essentielle entre le SEO et le SEA ?","Le SEO vise les résultats naturels, le SEA passe par des annonces payantes","Le SEO est réservé aux réseaux sociaux, le SEA est réservé aux sites web","Le SEO est payé au clic, tandis que le SEA est entièrement gratuit","Il n'y a aucune différence, ce sont deux noms pour la même technique"],["Quelle intention de recherche exprime la requête « acheter chaussures de running pas cher » ?","Une intention transactionnelle","Une intention informationnelle","Une intention de navigation vers un site précis","Une intention de divertissement"],["Quel élément HTML s'affiche généralement comme titre cliquable dans les résultats de recherche ?","La balise title","La balise footer","L'attribut alt d'une image","Le fichier robots.txt"],["Quel est le rôle principal de la meta description ?","Donner envie de cliquer en résumant la page dans les résultats","Remplacer entièrement le contenu de la page pour les moteurs","Interdire l'accès de la page aux robots des moteurs de recherche","Compresser les images de la page pour accélérer son chargement"],["Qu'est-ce qu'un bon backlink ?","Un lien provenant d'un site pertinent et fiable vers votre page","Un lien acheté en masse sur des sites sans rapport avec votre sujet","Un lien entre deux pages de votre propre site","Un lien présent uniquement dans des messages privés"],["Quelle bonne pratique s'applique à la balise H1 d'une page ?","Elle indique clairement le sujet principal de la page","Elle doit répéter dix fois le mot-clé","Elle doit être identique sur toutes les pages du site","Elle sert uniquement à agrandir le texte"],["Un site reçoit presque aucun trafic organique. Quel est un bon premier réflexe d'investigation ?","Vérifier dans Google Search Console si les pages sont bien indexées","Doubler le budget publicitaire sur les réseaux sociaux dès cette semaine","Changer la couleur et la police du site pour le rendre plus moderne","Publier cinq articles par jour sans analyser les résultats"],["Que désigne la cannibalisation de mots-clés ?","Deux pages du même site qui visent la même requête et se concurrencent","Un concurrent qui copie votre contenu pour gagner votre place","La suppression d'un mot-clé de l'index par le moteur de recherche","L'utilisation d'un même mot-clé dans une annonce payante et un article"],["Qu'est-ce qu'un mot-clé de longue traîne ?","Une requête longue et précise, avec moins de volume mais une intention claire","Un mot unique très recherché, avec une très forte concurrence en première page","Un mot-clé qui a disparu de l'index des moteurs de recherche","Un mot-clé qui ne peut être utilisé que dans des annonces payantes"],["À quoi sert le maillage interne ?","À relier les pages importantes entre elles pour guider visiteurs et robots","À envoyer des liens uniquement vers d'autres sites partenaires","À cacher certaines pages au public pour qu'elles ne soient jamais lues","À remplacer complètement les backlinks venant d'autres sites"],["Que représente le sigle E-E-A-T ?","Expérience, Expertise, Autorité, Fiabilité","Efficacité, Engagement, Audience, Trafic","Écriture, Édition, Analyse, Test","Entreprise, Évaluation, Acquisition, Transaction"],["Que mesurent principalement les Core Web Vitals ?","La vitesse de chargement, la réactivité et la stabilité visuelle d'une page","Le nombre de backlinks reçus par l'ensemble du site sur un an","Le budget publicitaire dépensé par mois sur les moteurs de recherche","Le nombre d'abonnés obtenus sur les réseaux sociaux de la marque"],["À quoi sert le fichier robots.txt ?","À indiquer aux robots les parties du site à explorer ou à ignorer","À chiffrer les mots de passe des comptes utilisateurs du site","À augmenter la vitesse de l'hébergeur lors des pics de visites","À afficher les avis clients sous forme d'étoiles dans les résultats"]]},{"t":"Copywriting et neuromarketing","s":"Copywriting","q":[["Que signifie AIDA en copywriting ?","Attention, Intérêt, Désir, Action","Analyse, Idée, Design, Audience","Acquisition, Image, Données, Annonce","Autorité, Information, Divertissement, Achat"],["Laquelle de ces phrases présente un bénéfice plutôt qu'une simple caractéristique ?","« Tenez deux jours sans recharger votre téléphone »","« Batterie de 5 000 mAh avec charge rapide de 33 W »","« Écran AMOLED de 6,5 pouces en haute définition »","« Processeur à huit cœurs cadencé à 2,4 GHz »"],["Quel appel à l'action (CTA) est le plus efficace pour un atelier gratuit ?","« Réservez ma place gratuite »","« Cliquez ici »","« Soumettre »","« Valider »"],["Que signifie la formule PAS ?","Problème, Agitation, Solution","Prix, Avantage, Service","Public, Audience, Stratégie","Produit, Accroche, Slogan"],["Lequel de ces éléments relève de la preuve sociale ?","Des avis clients vérifiés et des témoignages","Une remise limitée dans le temps","Un titre écrit en majuscules","Un logo plus coloré"],["Laquelle de ces formulations utilise l'urgence de façon éthique ?","« Inscriptions closes samedi à 18 h : il reste 12 places pour l'atelier »","Un compte à rebours qui se remet à zéro à chaque visite","« Plus que 2 en stock ! » alors que le stock est plein","« Tout le monde a déjà acheté, sauf vous »"],["Quelle caractéristique rend un titre efficace ?","Une promesse claire, précise et pertinente pour la cible","Une phrase très longue qui explique tout","Un jeu de mots obscur que seul l'auteur comprend","Un titre identique à celui de tous les concurrents"],["Que cherche à comprendre le neuromarketing ?","Comment le cerveau et les émotions influencent les décisions d'achat","Comment fabriquer des produits en grande série à moindre coût","Comment programmer un site web avec des langages informatiques","Comment calculer le budget publicitaire annuel d'une entreprise"],["Un site affiche « 100 000 Ar » barré puis « 70 000 Ar ». Quel biais cognitif est principalement utilisé ?","L'ancrage : la première valeur sert de référence","La preuve sociale : on imite ce que font les autres clients","L'aversion à la perte : on évite de perdre ce qu'on possède déjà","La réciprocité : on rend un service reçu à celui qui l'a offert"],["Le message « Ne perdez pas votre accès au tarif de lancement » s'appuie surtout sur quel principe ?","L'aversion à la perte : on redoute plus de perdre que de gagner","L'ancrage : le premier prix affiché sert de point de comparaison","La preuve sociale : on suit les choix faits par la majorité","Le storytelling : une histoire rend le message plus mémorable"],["Pourquoi le storytelling est-il utile en copywriting ?","Il capte l'attention, crée un lien émotionnel et rend le message plus mémorable","Il permet d'allonger un texte sans avoir à donner d'informations","Il remplace la proposition de valeur et rend l'offre inutile","Il dispense de proposer un appel à l'action clair au lecteur"],["Quel principe de Cialdini explique qu'après avoir reçu un guide gratuit, on a envie de donner quelque chose en retour ?","La réciprocité","La rareté","L'autorité","La cohérence"],["Quelle pratique améliore la lisibilité d'un texte web ?","Des phrases courtes, des paragraphes aérés et des intertitres","Un seul gros paragraphe, sans espace ni intertitre pour respirer","Un vocabulaire très technique, sans aucune explication pour le lecteur","Des phrases de plus de quarante mots pour tout expliquer d'un coup"],["Quelle formulation est centrée sur le client ?","« Vous gagnez du temps dès la première semaine »","« Nous sommes leaders depuis 2010 »","« Notre entreprise propose des solutions innovantes »","« Nous sommes fiers de notre équipe »"]]},{"t":"Content marketing et stratégie éditoriale","s":"Contenu","q":[["Qu'est-ce qu'un pilier de contenu ?","Un grand thème central de la marque, décliné en plusieurs contenus","Une publication payante mise en avant sur plusieurs réseaux","Le logo placé en haut de chaque page du site de la marque","Un outil de planification utilisé pour programmer les posts"],["À quoi sert un calendrier éditorial ?","À planifier les sujets, formats, canaux et dates de publication","À mesurer le taux de rebond des pages les plus visitées","À programmer uniquement des publicités payantes sur les réseaux","À remplacer la stratégie de contenu par une simple liste de dates"],["Transformer un article de blog en carrousel et en vidéo courte s'appelle…","Le recyclage de contenu (repurposing)","Le plagiat","Le retargeting","Le cloaking"],["Qu'est-ce qu'un contenu evergreen ?","Un contenu qui reste utile et pertinent longtemps après sa publication","Un contenu publié uniquement à l'occasion des fêtes de fin d'année","Un contenu qui disparaît automatiquement après 24 heures en ligne","Un contenu réservé aux abonnés qui paient un accès premium"],["Quel contenu convient le mieux à un prospect qui hésite avant d'acheter ?","Une étude de cas client avec des résultats concrets","Un quiz de divertissement sans lien avec l'offre","Une annonce de recrutement","Une photo de l'équipe en vacances"],["Pourquoi éviter de ne publier que des contenus promotionnels ?","Ils lassent l'audience car ils n'apportent rien d'autre que de la vente","Ils sont interdits par tous les réseaux sociaux sans exception","Ils coûtent toujours plus cher à produire que les autres contenus","Ils ne peuvent jamais contenir d'image ni de vidéo"],["Que définit une ligne éditoriale ?","Les sujets, le ton et le style des contenus de la marque","Le budget publicitaire annuel alloué à chaque réseau social","Le nombre de collaborateurs affectés à la création de contenu","La liste complète des concurrents directs de la marque"],["Qu'est-ce qu'un lead magnet ?","Un contenu gratuit offert en échange des coordonnées d'un prospect","Un aimant publicitaire distribué gratuitement dans les boutiques","Un outil qui mesure le trafic entrant sur le site de la marque","Un article de blog sponsorisé publié sur un site partenaire"],["Quel est l'avantage principal d'une liste e-mail pour une marque ?","Elle constitue un canal détenu : on touche l'audience sans algorithme","Elle garantit que la totalité des messages envoyés sont ouverts","Elle permet d'écrire aux gens sans jamais demander leur accord","Elle remplace tous les autres canaux de communication de la marque"],["Qu'est-ce que le contenu généré par les utilisateurs (UGC) ?","Des photos, avis ou vidéos créés par les clients à propos de la marque","Du contenu rédigé uniquement par l'équipe marketing de l'entreprise","Du contenu acheté à une agence spécialisée dans la production","Des publicités générées automatiquement par une plateforme"],["Un article de blog vise à générer des contacts qualifiés. Quel KPI est le plus pertinent ?","Le taux de conversion vers le formulaire ou le téléchargement","Le nombre de mots de l'article publié sur le blog","Le nombre de polices de caractères utilisées dans la page","L'heure de publication de l'article sur le blog"],["Pourquoi mettre à jour un ancien article peut-il être utile ?","Cela garde les informations exactes et peut améliorer sa performance","Cela supprime automatiquement ses backlinks","Cela change automatiquement son sujet","Les moteurs de recherche ne lisent que les nouveaux articles"],["Quels éléments sont indispensables dans un brief de contenu ?","L'objectif, la cible, le message clé, le format et le délai","Uniquement la couleur de fond et la police des visuels","Uniquement le nom et le logo des concurrents directs","Le mot de passe du compte et les accès à la messagerie"],["À quoi sert un guide de style éditorial ?","À garantir la cohérence du ton, du vocabulaire et de la présentation","À calculer le coût par clic des annonces payantes de la marque","À programmer automatiquement les publications sur les réseaux","À créer des audiences similaires pour les publicités ciblées"]]},{"t":"Réseaux sociaux et community management","s":"Réseaux sociaux","q":[["Quel est le rôle principal d'un community manager ?","Animer et modérer la communauté en relayant la stratégie de la marque","Programmer et maintenir uniquement le site web de l'entreprise","Négocier les contrats d'achat avec les fournisseurs de la marque","Concevoir et fabriquer les produits vendus par l'entreprise"],["Que faut-il faire avant de choisir les réseaux sociaux d'une marque ?","Définir ses objectifs et son audience cible","Créer un compte sur toutes les plateformes","Acheter des abonnés","Copier le calendrier d'un concurrent"],["Un cabinet de recrutement veut toucher des directeurs RH. Quelle plateforme est la plus adaptée en priorité ?","LinkedIn","Snapchat","Pinterest","Twitch"],["Que permet Meta Business Suite ?","Gérer au même endroit publications, messages et statistiques Facebook et Instagram","Créer entièrement un site web sans écrire une seule ligne de code","Envoyer des e-mails en masse à toute une base de clients","Suivre le classement des mots-clés de la marque sur Google"],["À quoi sert un outil comme Buffer ?","Planifier et programmer des publications sur plusieurs réseaux","Retoucher des photos et monter des vidéos professionnelles","Héberger et sécuriser un site web de commerce en ligne","Créer des logos et des chartes graphiques complètes"],["Comment Notion peut-il aider une équipe de contenu ?","En centralisant le calendrier éditorial, les idées et le suivi des tâches","En remplaçant les réseaux sociaux par un espace privé interne","En diffusant automatiquement les publicités de l'équipe en ligne","En mesurant la portée réelle de chaque publication de la marque"],["Qu'est-ce qu'un benchmark en réseaux sociaux ?","Comparer ses résultats à ceux de concurrents ou de références du secteur","Supprimer les commentaires négatifs laissés sur les publications","Publier chaque jour à la même heure sur tous les réseaux","Doubler le budget publicitaire dès que les résultats baissent"],["Un client publie un commentaire critique mais légitime. Quelle réaction est la plus adaptée ?","Répondre vite et poliment, puis proposer une solution","Supprimer le commentaire immédiatement pour éviter que d'autres le lisent","Ignorer totalement le commentaire en espérant qu'il soit oublié","Répondre sur le même ton agressif pour défendre la marque"],["Que faire d'un commentaire insultant qui enfreint votre charte de modération ?","Le masquer ou le supprimer selon la charte de modération","Y répondre par une insulte pour rester cohérent avec son ton","Le laisser en ligne sans jamais intervenir, quoi qu'il arrive","Supprimer tous les commentaires de la publication par précaution"],["Pourquoi les hashtags sont-ils utiles ?","Ils aident à catégoriser un contenu et à faciliter sa découverte","Ils garantissent automatiquement des milliers de vues par post","Ils remplacent entièrement le texte de la publication","Ils protègent le compte contre les tentatives de piratage"],["Comment trouver les meilleurs horaires de publication pour sa communauté ?","Analyser ses propres statistiques d'audience et tester différents créneaux","Reprendre simplement l'horaire utilisé par n'importe quelle autre marque","Publier uniquement la nuit, quand il y a moins de concurrence","Demander directement l'horaire idéal à un concurrent du secteur"],["Qu'est-ce que l'écoute sociale (social listening) ?","Suivre les mentions et conversations sur la marque et son secteur","Écouter des podcasts de marketing pendant les heures de travail","Répondre uniquement aux messages privés reçus par la page","Diffuser des messages vocaux aux abonnés de la communauté"],["Pourquoi un micro-influenceur peut-il convenir à une petite marque locale ?","Il touche une audience plus petite, mais souvent plus ciblée et plus engagée","Il travaille toujours gratuitement pour toutes les marques locales","Il garantit des ventes immédiates dès la première publication","Il n'a besoin d'aucun brief ni d'aucune consigne de la marque"],["Pourquoi poser une question à son audience dans une publication peut-il être utile ?","Cela peut encourager les commentaires et ouvrir la conversation","Cela garantit une viralité immédiate et un grand nombre de partages","Cela rend la publication obligatoirement payante pour toute la page","Cela remplace une véritable stratégie de contenu à long terme"]]},{"t":"KPIs par plateforme","s":"KPIs","q":[["Quelle est la différence entre la portée et les impressions ?","Portée : personnes uniques touchées ; impressions : nombre total d'affichages","Les deux mesurent exactement la même chose, sous deux noms différents","Portée : nombre de clics reçus ; impressions : nombre d'achats réalisés","Impressions : personnes uniques touchées ; portée : nombre de ventes"],["Comment calcule-t-on un taux d'engagement simple ?","Les interactions divisées par la portée (ou les abonnés), multipliées par 100","Le nombre d'abonnés divisé par le nombre de publications du mois","Le budget dépensé divisé par le nombre de clics obtenus","Le nombre de vues multiplié par le prix moyen du produit"],["Sur Instagram, quel indicateur suggère qu'un contenu est jugé assez utile pour être retrouvé plus tard ?","Le nombre d'enregistrements","Le nombre de hashtags","L'heure de publication","Le nombre de filtres utilisés"],["Pour une vidéo courte (Reel, TikTok), quel indicateur montre si le début capte l'attention ?","La durée moyenne de visionnage et la rétention","Le nombre de hashtags ajoutés dans la légende de la vidéo","Le nombre de mots utilisés dans la légende de la vidéo","Le nombre de comptes suivis par le créateur de la vidéo"],["Quel indicateur Facebook montre qu'une publication génère du trafic vers un site web ?","Les clics sur le lien","Le nombre de réactions seulement","Le nombre de pages suivies par l'utilisateur","La date de création de la page"],["Sur une page LinkedIn, que mesure généralement le taux d'engagement ?","Les interactions et clics rapportés aux impressions","Le nombre de salariés de l'entreprise inscrits sur la page","Le nombre d'offres d'emploi publiées sur la page ce mois-ci","Le salaire moyen des abonnés qui suivent la page entreprise"],["Sur TikTok, quel indicateur montre qu'une vidéo est regardée jusqu'au bout ?","Le taux de visionnage complet","Le nombre de sons disponibles","Le nombre de filtres appliqués","Le nombre de collaborateurs de l'équipe"],["Que mesure le taux de clics sur impressions d'une miniature YouTube ?","À quel point le titre et la miniature donnent envie de cliquer","Le nombre total d'abonnés de la chaîne depuis sa création","La durée totale de la vidéo mise en ligne sur la chaîne","Le nombre de commentaires négatifs reçus sous la vidéo"],["Quel indicateur YouTube montre le mieux si une vidéo retient son audience ?","La durée moyenne de visionnage","Le nombre de lettres du titre","Le jour de la semaine de publication","La langue de la description"],["Dans Google Analytics 4, comment définit-on une session engagée ?","Une session de 10 secondes ou plus, avec une conversion ou 2 pages vues","Une session au cours de laquelle le visiteur a cliqué sur une publicité","Une session sans aucune interaction de la part du visiteur","Une session limitée à une seule visite de la page d'accueil"],["Quel rapport de Google Analytics 4 permet de savoir d'où viennent les visiteurs ?","Les rapports d'acquisition de trafic","Le rapport sur les technologies et les appareils","Le rapport de monétisation","Le rapport sur les pages et écrans consultés"],["Une marque veut augmenter ses ventes en ligne. Quel KPI doit passer en priorité ?","Le taux de conversion et les ventes générées","Le nombre de likes","Le nombre de hashtags utilisés","Le nombre de stories publiées"],["Qu'est-ce qu'une métrique de vanité ?","Un chiffre flatteur sans lien clair avec l'objectif, comme des likes isolés","Un indicateur directement lié au chiffre d'affaires de l'entreprise","Une mesure réservée aux publicités payantes des réseaux sociaux","Un indicateur qui mesure la vitesse de chargement d'un site"],["La portée d'une page baisse de 30 % en un mois. Quel est le meilleur premier réflexe ?","Comparer à la période précédente et chercher ce qui a changé avant de conclure","Supprimer la page et en recréer une nouvelle dès le lendemain","Acheter immédiatement des abonnés pour compenser la baisse","Conclure que ce réseau social est devenu inutile pour la marque"]]},{"t":"Publicité, e-mailing et analyse","s":"Publicité & analyse","q":[["Quelle est la différence principale entre le SEA et les publicités sur les réseaux sociaux ?","Le SEA cible des recherches actives, les réseaux ciblent des profils et des intérêts","Le SEA est gratuit, alors que les publicités sur les réseaux sont payantes","Le SEA ne fonctionne que sur mobile, les réseaux que sur ordinateur","Il n'y a aucune différence de ciblage entre ces deux types de publicité"],["Que signifie CPC ?","Coût par clic","Chiffre par client","Contenu pour conversion","Compte pour campagne"],["Une annonce a obtenu 20 000 impressions et 400 clics. Quel est son CTR ?","2 %","20 %","0,2 %","5 %"],["Une campagne dépense 1 000 000 Ar et génère 4 000 000 Ar de ventes. Quel est son ROAS ?","4","0,25","3","40"],["Qu'est-ce que le retargeting ?","Recibler des personnes ayant déjà visité le site ou interagi avec la marque","Cibler uniquement des inconnus qui n'ont jamais entendu parler de la marque","Supprimer les cookies du navigateur de tous les visiteurs du site","Changer le nom d'une campagne pour remettre à zéro ses statistiques"],["À quoi sert un pixel de suivi (comme le Meta Pixel) ?","Suivre les actions des visiteurs pour mesurer les résultats et affiner le ciblage","Compresser les images du site pour qu'il se charge plus vite","Rédiger automatiquement les textes des publicités de la campagne","Héberger le site sur des serveurs plus rapides et plus sûrs"],["Qu'est-ce qu'une audience similaire (lookalike) ?","Un groupe de personnes qui ressemblent à vos meilleurs clients actuels","Un groupe composé uniquement des salariés de votre entreprise","Une audience achetée directement à l'un de vos concurrents","Une audience composée de robots qui visitent votre site web"],["Que reflète le niveau de qualité d'une annonce dans Google Ads ?","La pertinence de l'annonce, du mot-clé et de la page de destination","Le nombre de photos de produits ajoutées à la campagne","L'ancienneté de l'entreprise dans son secteur d'activité","La taille du budget mensuel alloué à la campagne"],["Le coût d'acquisition d'une campagne dépasse la marge dégagée par la vente. Quelle est la meilleure décision ?","Tester d'autres ciblages ou créations, ou mettre la campagne en pause","Augmenter le budget sans rien changer à la campagne en cours","Ignorer le problème tant que les clics restent nombreux","Supprimer le suivi des conversions pour ne plus voir le coût"],["Pourquoi la page de destination doit-elle correspondre au message de l'annonce ?","Pour que la cohérence rassure le visiteur et améliore la conversion","Pour augmenter le poids de la page et la rendre plus riche","Pour éviter d'utiliser des images sur la page d'atterrissage","Pour que l'annonce devienne gratuite aux yeux de la plateforme"],["Pourquoi le taux d'ouverture des e-mails est-il devenu moins fiable ?","Des protections de confidentialité peuvent déclencher de fausses ouvertures","Les e-mails ne peuvent plus du tout être ouverts sur mobile","Il est désormais interdit de mesurer l'ouverture des e-mails","Il dépend uniquement de la couleur du bouton dans le message"],["Quelle pratique est essentielle pour respecter les abonnés d'une liste e-mail ?","Obtenir un consentement clair et proposer un désabonnement simple","Acheter une liste de contacts sans demander leur accord","Cacher le lien de désinscription en bas du message","Envoyer les messages sans jamais indiquer l'expéditeur"],["Pourquoi comparer la valeur vie client (LTV) au CAC ?","Pour vérifier que l'acquisition d'un client est rentable sur la durée","Pour compter combien d'abonnés la marque a sur ses réseaux","Pour choisir la police de caractères du site de la marque","Pour fixer l'heure d'envoi idéale de chaque e-mail promotionnel"],["Un client voit une publicité Instagram, clique sur un e-mail, puis achète après une recherche Google. Avec une attribution au dernier clic, à quoi la vente est-elle attribuée ?","À la recherche Google, dernier point de contact avant l'achat","À la publicité Instagram, qui a été le premier contact","À l'e-mail, qui se trouve au milieu du parcours d'achat","À aucun canal, car le client a utilisé plusieurs sources"]]}];
+  const EMAIL = "lorenantsoa.seo@gmail.com";
+  const KEY = "me-exam-v1";
+  const TITLE = "Examen Marketing digital - Mistick EDUCATION";
+  const $ = (id) => document.getElementById(id);
+
+  const Q = [];
+  SECTIONS.forEach((sec, si) => sec.q.forEach((r) => Q.push({ n: Q.length + 1, si, q: r[0], o: r.slice(1) })));
+  const TOTAL = Q.length;
+
+  let S = { stage: "intro", name: "", group: "", seed: Math.floor(Math.random() * 2147483646) + 1, ans: {}, sec: 0, done: null };
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) { const o = JSON.parse(raw); if (o && typeof o === "object") S = Object.assign(S, o); }
+  } catch (e) {}
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function rng(a) {
+    return function () {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function order(q) {
+    const r = rng(S.seed + q.n * 7919);
+    const p = [0, 1, 2, 3];
+    for (let i = 3; i > 0; i--) { const j = Math.floor(r() * (i + 1)); const t = p[i]; p[i] = p[j]; p[j] = t; }
+    return p;
+  }
+  const answered = () => Object.keys(S.ans).length;
+  const say = (m) => { $("live").textContent = ""; setTimeout(() => { $("live").textContent = m; }, 30); };
+
+  /* ---------- Navigation entre écrans ---------- */
+  function show() {
+    const teacher = location.hash === "#formatrice";
+    $("intro").hidden = teacher || S.stage !== "intro";
+    $("exam").hidden = teacher || S.stage !== "exam";
+    $("done").hidden = teacher || S.stage !== "done";
+    $("teacher").hidden = !teacher;
+  }
+
+  /* ---------- Examen ---------- */
+  const pillBtns = [];
+  function buildPills() {
+    const box = $("pills");
+    box.textContent = "";
+    SECTIONS.forEach((sec, i) => {
+      const b = el("button", "pill", String(i + 1));
+      b.type = "button";
+      b.title = sec.s;
+      b.setAttribute("aria-label", "Partie " + (i + 1) + " : " + sec.s);
+      b.addEventListener("click", () => goSec(i));
+      box.appendChild(b); pillBtns.push(b);
+    });
+  }
+  function secDone(si) { return Q.filter((q) => q.si === si && S.ans[q.n] !== undefined).length; }
+  function updateTop() {
+    const a = answered();
+    $("count").textContent = a + " / " + TOTAL;
+    $("barFill").style.width = (a / TOTAL * 100) + "%";
+    $("barBox").setAttribute("aria-valuenow", String(a));
+    pillBtns.forEach((b, i) => {
+      b.classList.toggle("complete", secDone(i) === SECTIONS[i].q.length);
+      if (i === S.sec) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
+    });
+    const sd = secDone(S.sec);
+    $("secCount").textContent = sd + " sur " + SECTIONS[S.sec].q.length + " dans cette partie";
+  }
+  function renderSec() {
+    const sec = SECTIONS[S.sec];
+    $("secNum").textContent = "Partie " + (S.sec + 1) + " sur " + SECTIONS.length;
+    $("secTitle").textContent = sec.t;
+    const box = $("qs");
+    box.textContent = "";
+    Q.filter((q) => q.si === S.sec).forEach((q) => {
+      const card = el("div", "q");
+      card.setAttribute("role", "radiogroup");
+      card.setAttribute("aria-labelledby", "qt" + q.n);
+      card.appendChild(el("div", "qn", "Question " + q.n + " sur " + TOTAL));
+      const t = el("p", "qt", q.q); t.id = "qt" + q.n; card.appendChild(t);
+      const opts = el("div", "opts");
+      order(q).forEach((orig, pos) => {
+        const lab = el("label", "opt" + (S.ans[q.n] === orig ? " sel" : ""));
+        const inp = document.createElement("input");
+        inp.type = "radio"; inp.name = "q" + q.n; inp.value = String(orig);
+        inp.checked = S.ans[q.n] === orig;
+        inp.addEventListener("change", () => {
+          S.ans[q.n] = orig; save();
+          opts.querySelectorAll(".opt").forEach((x) => x.classList.remove("sel"));
+          lab.classList.add("sel");
+          $("warn").hidden = true;
+          updateTop();
+        });
+        lab.appendChild(inp);
+        lab.appendChild(el("span", "key", "ABCD"[pos]));
+        lab.appendChild(el("span", "txt", q.o[orig]));
+        opts.appendChild(lab);
+      });
+      card.appendChild(opts);
+      box.appendChild(card);
+    });
+    $("prev").disabled = S.sec === 0;
+    $("next").textContent = S.sec === SECTIONS.length - 1 ? "Terminer l'examen" : "Partie suivante";
+    $("warn").hidden = true;
+    updateTop();
+  }
+  function goSec(i) {
+    S.sec = Math.max(0, Math.min(SECTIONS.length - 1, i)); save();
+    renderSec();
+    window.scrollTo(0, 0);
+  }
+  function firstUnanswered() { return Q.find((q) => S.ans[q.n] === undefined); }
+  function tryFinish(force) {
+    const left = TOTAL - answered();
+    if (left > 0 && !force) {
+      $("warnTxt").textContent = left === 1
+        ? "Il reste 1 question sans réponse. Une question sans réponse compte comme fausse."
+        : "Il reste " + left + " questions sans réponse. Une question sans réponse compte comme fausse.";
+      $("warn").hidden = false;
+      $("warn").scrollIntoView({ block: "center" });
+      return;
+    }
+    finish();
+  }
+
+  /* ---------- Fin : message à envoyer ---------- */
+  function wrap(s, w) { return s.replace(new RegExp("(.{1," + w + "})", "g"), "$1\n").trim(); }
+  function build() {
+    const a = Q.map((q) => (S.ans[q.n] === undefined ? "-" : String(S.ans[q.n]))).join("");
+    const p = { v: 1, n: S.name, g: S.group, d: new Date().toISOString(), s: S.seed, a: a };
+    const code = wrap(btoa(unescape(encodeURIComponent(JSON.stringify(p)))), 60);
+    const when = new Date(p.d).toLocaleString("fr-FR");
+    const lines = [TITLE, "Apprenant : " + S.name];
+    if (S.group) lines.push("Groupe : " + S.group);
+    lines.push("Date : " + when, "", "Code de résultats (à ne pas modifier) :", "[[" + code + "]]", "", "Ce code est lu par la formatrice.");
+    return { text: lines.join("\n"), subject: "Résultats examen Marketing digital - " + S.name };
+  }
+  function finish() {
+    S.stage = "done";
+    S.done = build();
+    save(); show(); renderDone();
+    window.scrollTo(0, 0);
+  }
+  let DL = null;
+  function renderDone() {
+    const d = S.done || build();
+    $("thanks").textContent = "Merci, " + S.name.split(" ")[0] + ".";
+    $("mailBtn").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent(d.text);
+    $("addr").textContent = EMAIL;
+    $("msgBox").value = d.text;
+  }
+  function flash(btn, msg) {
+    const old = btn.dataset.label || btn.textContent;
+    btn.dataset.label = old; btn.textContent = msg; say(msg);
+    setTimeout(() => { btn.textContent = old; }, 2200);
+  }
+  async function copy(str, btn, fallbackEl) {
+    try { await navigator.clipboard.writeText(str); flash(btn, "Copié"); }
+    catch (e) {
+      if (fallbackEl) { fallbackEl.focus(); fallbackEl.select && fallbackEl.select(); }
+      flash(btn, "Sélectionné : copiez avec le menu de votre appareil");
+    }
+  }
+
+  /* ---------- Espace formatrice ---------- */
+  function decode() {
+    const err = $("tErr"), out = $("tOut");
+    err.hidden = true; out.hidden = true; out.textContent = "";
+    const raw = $("tIn").value;
+    const m = raw.match(/\[\[([\s\S]*?)\]\]/);
+    const b64 = (m ? m[1] : raw).replace(/\s+/g, "");
+    let p;
+    try { p = JSON.parse(decodeURIComponent(escape(atob(b64)))); }
+    catch (e) { err.textContent = "Code illisible. Collez le message complet ou le code entre doubles crochets."; err.hidden = false; return; }
+    if (!p || typeof p.a !== "string" || p.a.length !== TOTAL || /[^0-3-]/.test(p.a)) {
+      err.textContent = "Ce code ne correspond pas à cet examen."; err.hidden = false; return;
+    }
+    const ok = (q) => p.a[q.n - 1] === "0";
+    const score = Q.filter(ok).length;
+    const pct = Math.round(score / TOTAL * 100);
+    const level = pct >= 85 ? "Très solide" : pct >= 70 ? "Solide" : pct >= 50 ? "En progression" : "À consolider";
+
+    const head = el("div", "stack");
+    head.appendChild(el("h2", "", String(p.n || "Sans nom") + (p.g ? " · " + p.g : "")));
+    head.appendChild(el("p", "small", p.d ? new Date(p.d).toLocaleString("fr-FR") : ""));
+    head.appendChild(el("div", "score", score + " / " + TOTAL));
+    head.appendChild(el("p", "", pct + " % de bonnes réponses. Lecture indicative : " + level + "."));
+    out.appendChild(head);
+
+    const tbl = el("div", "tbl");
+    SECTIONS.forEach((sec, si) => {
+      const qs = Q.filter((q) => q.si === si);
+      const c = qs.filter(ok).length;
+      const row = el("div", "tr");
+      row.appendChild(el("span", "", sec.t));
+      row.appendChild(el("b", "", c + " / " + qs.length));
+      const tr = el("div", "track"); const i = document.createElement("i");
+      i.style.width = (c / qs.length * 100) + "%"; tr.appendChild(i); row.appendChild(tr);
+      tbl.appendChild(row);
+    });
+    const secWrap = el("div", "stack"); secWrap.appendChild(el("h2", "", "Résultat par partie")); secWrap.appendChild(tbl);
+    out.appendChild(secWrap);
+
+    const wrong = Q.filter((q) => !ok(q));
+    const mw = el("div", "stack");
+    mw.appendChild(el("h2", "", wrong.length ? "Questions à revoir (" + wrong.length + ")" : "Aucune erreur"));
+    wrong.forEach((q) => {
+      const card = el("div", "miss");
+      card.appendChild(el("span", "qn", "Question " + q.n + " · " + SECTIONS[q.si].s));
+      card.appendChild(el("b", "", q.q));
+      const ch = p.a[q.n - 1];
+      const given = el("span", "bad", ch === "-" ? "Sans réponse" : "Réponse donnée : " + q.o[+ch]);
+      card.appendChild(given);
+      card.appendChild(el("span", "good", "Bonne réponse : " + q.o[0]));
+      mw.appendChild(card);
+    });
+    out.appendChild(mw);
+    out.hidden = false;
+  }
+
+  /* ---------- Événements ---------- */
+  $("startForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = $("nameIn").value.trim().replace(/\s+/g, " ");
+    if (name.length < 3) { $("nameErr").hidden = false; $("nameIn").focus(); return; }
+    $("nameErr").hidden = true;
+    S.name = name; S.group = $("groupIn").value.trim(); S.stage = "exam"; S.sec = 0;
+    save(); show(); renderSec(); window.scrollTo(0, 0);
+  });
+  $("prev").addEventListener("click", () => goSec(S.sec - 1));
+  $("next").addEventListener("click", () => {
+    if (S.sec === SECTIONS.length - 1) tryFinish(false); else goSec(S.sec + 1);
+  });
+  $("warnGo").addEventListener("click", () => {
+    const q = firstUnanswered(); if (!q) return;
+    goSec(q.si);
+    const t = $("qt" + q.n); if (t) t.scrollIntoView({ block: "center" });
+  });
+  $("warnForce").addEventListener("click", () => tryFinish(true));
+  $("copyMsg").addEventListener("click", (e) => copy($("msgBox").value, e.currentTarget, $("msgBox")));
+  $("copyAddr").addEventListener("click", (e) => copy(EMAIL, e.currentTarget, null));
+  $("dlBtn").addEventListener("click", () => {
+    if (!DL) return;
+    const f = "resultats-" + S.name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") + ".txt";
+    DL.save({ filename: f, data: $("msgBox").value }).then(() => say("Fichier enregistré")).catch(() => {});
+  });
+  $("tBtn").addEventListener("click", decode);
+  window.addEventListener("hashchange", show);
+
+  /* ---------- Démarrage ---------- */
+  buildPills();
+  $("nameIn").value = S.name; $("groupIn").value = S.group;
+  if (S.stage === "exam") renderSec();
+  if (S.stage === "done") renderDone();
+  show();
+  if (window.claude && typeof window.claude.use === "function") {
+    window.claude.use("downloads").then((d) => { if (d) { DL = d; $("dlBtn").hidden = false; } }).catch(() => {});
+  }
+})();
+</script>
+
+</body></html>
